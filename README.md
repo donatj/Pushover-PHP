@@ -8,7 +8,7 @@ Pushover PHP is a light, damn simple API wrapper for the Pushover API written in
 $po = new Pushover('myapikey', 'myuserkey');
 
 $po->send('Hello World!');
-$po->send('Goodbye World', array('priority' => 1));
+$po->send('Goodbye Cruel World...', array('priority' => 1));
 ```
 
 ## Documentation
