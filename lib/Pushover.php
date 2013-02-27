@@ -1,5 +1,11 @@
 <?php
 
+/**
+ * Damn Simple API Interface for Pushover Messages
+ *
+ * @author Jesse G. Donat <donatj@gmail.com>
+ * @license MIT
+ */
 class Pushover {
 
 	const API_URL = "https://api.pushover.net/1/messages.json";
@@ -25,7 +31,7 @@ class Pushover {
 	 * 
 	 * @param  string $message  The message to send
 	 * @param  array  $options  Optional configuration settings
-	 * @return false|array      Returns false on failure, or a data array on success
+	 * @return bool|array      Returns false on failure, or a data array on success
 	 */
 	public function send( $message, array $data = array() ) {
 
