@@ -1,11 +1,11 @@
 # Pushover PHP
 
-Pushover PHP is a light, damn simple API wrapper for the Pushover API written in PHP.
+Pushover PHP is a very light, simple API wrapper for the Pushover API written in PHP.
 
 ## Usage
 
 ```php
-$po = new Pushover('myapikey', 'myuserkey');
+$po = new donatj\Pushover('myapikey', 'myuserkey');
 
 $po->send('Hello World!');
 $po->send('Goodbye Cruel World...', array('priority' => 1));
@@ -26,7 +26,7 @@ On *failure* `Pushover->send` returns **false** which allows simple
 
 ```php
 if( !$po->send('Hello World!') ) { 
-	die('oh no!'); 
+	die('oh no!');
 }
 ```
 
