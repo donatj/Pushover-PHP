@@ -1,5 +1,7 @@
 <?php
 
+namespace donatj;
+
 /**
  * Damn Simple API Interface for Pushover Messages
  *
