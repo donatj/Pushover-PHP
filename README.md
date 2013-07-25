@@ -2,6 +2,16 @@
 
 Pushover PHP is a very light, simple API wrapper for the Pushover API written in PHP.
 
+## Installing
+
+Pushover PHP is available through Packagist via Composer.
+
+```json
+"require": {
+	"donatj/pushover": "*"
+}
+```
+
 ## Usage
 
 ```php
@@ -29,5 +39,3 @@ if( !$po->send('Hello World!') ) {
 	die('oh no!');
 }
 ```
-
-*More Coming soon.*
