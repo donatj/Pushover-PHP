@@ -32,8 +32,8 @@ class Pushover {
 	 * @see    https://pushover.net/api
 	 * 
 	 * @param  string $message  The message to send
-	 * @param  array  $options  Optional configuration settings
-	 * @return bool|array      Returns false on failure, or a data array on success
+	 * @param  array  $data     Optional configuration settings
+	 * @return bool|array       Returns false on failure, or a data array on success
 	 */
 	public function send( $message, array $data = array() ) {
 
