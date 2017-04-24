@@ -50,9 +50,9 @@ class Pushover {
 	 * @return bool|array       Returns false on failure, or a data array on success
 	 */
 	public function send( $message, array $options = array() ) {
-		$options['token']   = $this->token;
-		$options['user']    = $this->user;
-		$options['message'] = $message;
+		$options[Keys::TOKEN]   = $this->token;
+		$options[Keys::USER]    = $this->user;
+		$options[Keys::MESSAGE] = $message;
 
 		$opts = array( 'http' => array(
 			'method'  => 'POST',
