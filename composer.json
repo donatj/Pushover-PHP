@@ -2,11 +2,11 @@
 	"name": "donatj/pushover",
 	"type": "library",
 	"description": "A very simple Pushover.net client",
-	"keywords": ["Pushover", "pushover.net"],
+	"keywords": [
+		"Pushover",
+		"pushover.net"
+	],
 	"license": "MIT",
-	"require": {
-		"php": ">=5.3.0"
-	},
 	"authors": [
 		{
 			"name": "Jesse G. Donat",
@@ -19,5 +19,12 @@
 		"psr-4": {
 			"donatj\\Pushover\\": "src/"
 		}
+	},
+	"require": {
+		"php": ">=5.4.0"
+	},
+	"require-dev": {
+		"donatj/mock-webserver": "^0.2.0",
+		"phpunit/phpunit": "4.*"
 	}
 }
