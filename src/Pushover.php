@@ -49,16 +49,16 @@ class Pushover {
 	 * @param  array  $options Optional configuration settings
 	 * @return bool|array       Returns false on failure, or a data array on success
 	 */
-	public function send( $message, array $options = array() ) {
+	public function send( $message, array $options = [] ) {
 		$options[Keys::TOKEN]   = $this->token;
 		$options[Keys::USER]    = $this->user;
 		$options[Keys::MESSAGE] = $message;
 
-		$opts = array( 'http' => array(
+		$opts = [ 'http' => [
 			'method'  => 'POST',
 			'header'  => 'Content-type: application/x-www-form-urlencoded',
 			'content' => http_build_query($options),
-		) );
+		] ];
 
 		$context = stream_context_create($opts);
 
