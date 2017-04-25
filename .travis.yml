@@ -14,5 +14,5 @@ matrix:
     - php: nightly
 
 before_script:
-- composer install --no-dev
+- composer install
 script: phpunit
