@@ -1,0 +1,41 @@
+<mddoc>
+
+	<docpage target="README.md">
+
+		<section title="Pushover PHP">
+			<text><![CDATA[
+Pushover PHP is a very light, simple API wrapper for the Pushover API written for PHP.
+]]></text>
+			<section title="Installing">
+				<composer-install/>
+			</section>
+			<section title="Usage">
+				<source name="example/pushover_test.php" lang="php"/>
+
+			</section>
+			<section title="Documentation" autoloader="psr4" autoloader-root="src"
+					 autoloader-root-namespace="donatj\Pushover">
+				<text><![CDATA[
+
+On *success* `Pushover->send` returns a **truth-y** array like:
+
+```php
+[
+    'status'  => 1
+    'request' => 2f4e9c7140df52d7d8b16ffb8adf1c2a
+]
+```
+
+On *failure* `Pushover->send` returns **false** which allows simple
+
+```php
+if( !$po->send('Hello World!') ) {
+	die('oh no!');
+}
+```
+]]></text>
+				<recursivedirectory name="src"/>
+			</section>
+		</section>
+	</docpage>
+</mddoc>
