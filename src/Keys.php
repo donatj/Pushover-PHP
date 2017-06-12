@@ -2,7 +2,7 @@
 
 namespace donatj\Pushover;
 
-class Keys {
+interface Keys {
 	const TOKEN     = 'token';
 	const USER      = 'user';
 	const MESSAGE   = 'message';

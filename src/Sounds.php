@@ -2,27 +2,94 @@
 
 namespace donatj\Pushover;
 
-class Sounds {
-	const PUSHOVER      = 'pushover'; // Pushover (default)
-	const BIKE          = 'bike'; // Bike
-	const BUGLE         = 'bugle'; // Bugle
-	const CASH_REGISTER = 'cashregister'; // Cash Register
-	const CLASSICAL     = 'classical'; // Classical
-	const COSMIC        = 'cosmic'; // Cosmic
-	const FALLING       = 'falling'; // Falling
-	const GAMELAN       = 'gamelan'; // Gamelan
-	const INCOMING      = 'incoming'; // Incoming
-	const INTERMISSION  = 'intermission'; // Intermission
-	const MAGIC         = 'magic'; // Magic
-	const MECHANICAL    = 'mechanical'; // Mechanical
-	const PIANO_BAR     = 'pianobar'; // Piano Bar
-	const SIREN         = 'siren'; // Siren
-	const SPACE_ALARM   = 'spacealarm'; // Space Alarm
-	const TUGBOAT       = 'tugboat'; // Tug Boat
-	const ALIEN         = 'alien'; // Alien Alarm (long)
-	const CLIMB         = 'climb'; // Climb (long)
-	const PERSISTENT    = 'persistent'; // Persistent (long)
-	const PUSHOVER_ECHO = 'echo'; // Pushover Echo (long)
-	const UP_DOWN       = 'updown'; // Up Down (long)
-	const NONE          = 'none'; // None (silent)
+interface Sounds {
+
+	/**
+	 * Pushover (default)
+	 */
+	const PUSHOVER = 'pushover';
+	/**
+	 * Bike
+	 */
+	const BIKE = 'bike';
+	/**
+	 * Bugle
+	 */
+	const BUGLE = 'bugle';
+	/**
+	 * Cash Register
+	 */
+	const CASH_REGISTER = 'cashregister';
+	/**
+	 * Classical
+	 */
+	const CLASSICAL = 'classical';
+	/**
+	 * Cosmic
+	 */
+	const COSMIC = 'cosmic';
+	/**
+	 * Falling
+	 */
+	const FALLING = 'falling';
+	/**
+	 * Gamelan
+	 */
+	const GAMELAN = 'gamelan';
+	/**
+	 * Incoming
+	 */
+	const INCOMING = 'incoming';
+	/**
+	 * Intermission
+	 */
+	const INTERMISSION = 'intermission';
+	/**
+	 * Magic
+	 */
+	const MAGIC = 'magic';
+	/**
+	 * Mechanical
+	 */
+	const MECHANICAL = 'mechanical';
+	/**
+	 * Piano Bar
+	 */
+	const PIANO_BAR = 'pianobar';
+	/**
+	 * Siren
+	 */
+	const SIREN = 'siren';
+	/**
+	 * Space Alarm
+	 */
+	const SPACE_ALARM = 'spacealarm';
+	/**
+	 * Tug Boat
+	 */
+	const TUGBOAT = 'tugboat';
+	/**
+	 * Alien Alarm (long)
+	 */
+	const ALIEN = 'alien';
+	/**
+	 * Climb (long)
+	 */
+	const CLIMB = 'climb';
+	/**
+	 * Persistent (long)
+	 */
+	const PERSISTENT = 'persistent';
+	/**
+	 * Pushover Echo (long)
+	 */
+	const PUSHOVER_ECHO = 'echo';
+	/**
+	 * Up Down (long)
+	 */
+	const UP_DOWN = 'updown';
+	/**
+	 * None (silent)
+	 */
+	const NONE = 'none';
 }
