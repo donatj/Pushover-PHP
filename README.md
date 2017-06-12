@@ -19,13 +19,22 @@ composer require 'donatj/pushover'
 require __DIR__ . '/../vendor/autoload.php';
 
 use donatj\Pushover\Keys;
+use donatj\Pushover\Priority;
 use donatj\Pushover\Pushover;
+use donatj\Pushover\Sounds;
 
 $po = new Pushover('{myapikey}', '{myuserkey}');
 
+// Simplest example
 $po->send('Hello World') or die('Message Failed');
-$po->send('Goodbye World', [ Keys::PRIORITY => 1 ]) or die('Message Failed');
-$po->send('New Comment!', [ Keys::URL => 'http://donatstudios.com' ]) or die('Message Failed');
+
+// With Options:
+$po->send('Awesome website, great job!', [
+	Keys::TITLE    => 'New Comment!',
+	Keys::URL      => 'https://donatstudios.com/CsvToMarkdownTable',
+	Keys::PRIORITY => Priority::HIGH,
+	Keys::SOUND    => Sounds::ALIEN,
+]) or die('Message Failed');
 
 echo 'All Messages Sent Successfully!' . PHP_EOL;
 ```
@@ -35,10 +44,10 @@ echo 'All Messages Sent Successfully!' . PHP_EOL;
 On *success* `Pushover->send` returns a **truth-y** array like:
 
 ```php
-array(
+[
     'status'  => 1
     'request' => 2f4e9c7140df52d7d8b16ffb8adf1c2a
-)
+]
 ```
 
 On *failure* `Pushover->send` returns **false** which allows simple
@@ -57,15 +66,35 @@ if( !$po->send('Hello World!') ) {
 namespace donatj\Pushover;
 
 class Keys {
+	/**
+	 * The Application API token.
+	 * 
+	 * Defaults to the token \donatj\Pushover\Pushover was constructed with.
+	 */
 	const TOKEN = 'token';
+	/**
+	 * The User Key.
+	 * 
+	 * Defaults to the user key \donatj\Pushover\Pushover was constructed with.
+	 */
 	const USER = 'user';
-	const MESSAGE = 'message';
+	/**
+	 * The optional devices name for the message to be pushed to.
+	 * 
+	 * If unspecified, your message will be pushed to all devices.
+	 */
 	const DEVICE = 'device';
+	/** The optional message title */
 	const TITLE = 'title';
+	/** The optional message url */
 	const URL = 'url';
+	/** The optional message url title. Must specify a URL as well. */
 	const URL_TITLE = 'url_title';
+	/** The priority of the message being sent. */
 	const PRIORITY = 'priority';
+	/** An optional UNIX timestamp for your message. Otherwise the current time is used. */
 	const TIMESTAMP = 'timestamp';
+	/** The sound to play on receiving the pushover message. */
 	const SOUND = 'sound';
 }
 ```
