@@ -29,7 +29,7 @@ use donatj\Pushover\Priority;
 use donatj\Pushover\Pushover;
 use donatj\Pushover\Sounds;
 
-$po = new Pushover('{myapikey}', '{myuserkey}');
+$po = new Pushover('{my_apikey}', '{my_userkey}');
 
 // Simplest example
 $po->send('Hello World') or die('Message Failed');
@@ -42,7 +42,6 @@ $po->send('Awesome website, great job!', [
 	Options::SOUND    => Sounds::ALIEN,
 ]) or die('Message Failed');
 
-echo 'All Messages Sent Successfully!' . PHP_EOL;
 ```
 
 ## Documentation

@@ -14,8 +14,7 @@ Pushover PHP is a very light, simple API wrapper for the Pushover API written fo
 				<composer-install/>
 			</section>
 			<section title="Usage">
-				<source name="example/pushover_test.php" lang="php"/>
-
+				<source name="example/pushover_sample.php" lang="php"/>
 			</section>
 			<section title="Documentation" autoloader="psr4" autoloader-root="src"
 					 autoloader-root-namespace="donatj\Pushover">
