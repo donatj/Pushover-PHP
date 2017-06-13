@@ -46,6 +46,8 @@ $po->send('Awesome website, great job!', [
 
 ## Documentation
 
+For documentation about the protocol specifics, see the official [Pushover API Documentation](https://pushover.net/api).
+
 On *success* `Pushover->send` returns a **truth-y** array like:
 
 ```php

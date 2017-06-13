@@ -19,6 +19,7 @@ Pushover PHP is a very light, simple API wrapper for the Pushover API written fo
 			<section title="Documentation" autoloader="psr4" autoloader-root="src"
 					 autoloader-root-namespace="donatj\Pushover">
 				<text><![CDATA[
+For documentation about the protocol specifics, see the official [Pushover API Documentation](https://pushover.net/api).
 
 On *success* `Pushover->send` returns a **truth-y** array like:
 
