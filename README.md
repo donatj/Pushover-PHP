@@ -18,7 +18,7 @@ composer require 'donatj/pushover'
 
 require __DIR__ . '/../vendor/autoload.php';
 
-use donatj\Pushover\Keys;
+use donatj\Pushover\Options;
 use donatj\Pushover\Priority;
 use donatj\Pushover\Pushover;
 use donatj\Pushover\Sounds;
@@ -30,10 +30,10 @@ $po->send('Hello World') or die('Message Failed');
 
 // With Options:
 $po->send('Awesome website, great job!', [
-	Keys::TITLE    => 'New Comment!',
-	Keys::URL      => 'https://donatstudios.com/CsvToMarkdownTable',
-	Keys::PRIORITY => Priority::HIGH,
-	Keys::SOUND    => Sounds::ALIEN,
+	Options::TITLE    => 'New Comment!',
+	Options::URL      => 'https://donatstudios.com/CsvToMarkdownTable',
+	Options::PRIORITY => Priority::HIGH,
+	Options::SOUND    => Sounds::ALIEN,
 ]) or die('Message Failed');
 
 echo 'All Messages Sent Successfully!' . PHP_EOL;
@@ -59,13 +59,13 @@ if( !$po->send('Hello World!') ) {
 ```
 
 
-### Class: \donatj\Pushover\Keys
+### Class: \donatj\Pushover\Options
 
 ```php
 <?php
 namespace donatj\Pushover;
 
-class Keys {
+class Options {
 	/**
 	 * The Application API token.
 	 * 

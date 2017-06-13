@@ -2,7 +2,7 @@
 
 namespace donatj\Pushover;
 
-interface Keys {
+interface Options {
 
 	/**
 	 * The Application API token.

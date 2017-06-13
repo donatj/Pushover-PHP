@@ -1,7 +1,7 @@
 <?php
 
 use donatj\MockWebServer\MockWebServer;
-use donatj\Pushover\Keys;
+use donatj\Pushover\Options;
 use donatj\Pushover\Pushover;
 use donatj\Pushover\Sounds;
 
@@ -39,13 +39,13 @@ class PushoverTest extends PHPUnit_Framework_TestCase {
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!', [
-			Keys::DEVICE   => 'totem',
-			Keys::PRIORITY => \donatj\Pushover\Priority::HIGH,
-			Keys::MESSAGE  => 'Not the initially set message',
-			Keys::TOKEN    => 'Different Token… For some reason…',
-			Keys::USER     => 'And a different user just for kicks',
-			Keys::SOUND    => Sounds::MAGIC,
-			Keys::URL      => 'https://donatstudios.com',
+			Options::DEVICE   => 'totem',
+			Options::PRIORITY => \donatj\Pushover\Priority::HIGH,
+			Options::MESSAGE  => 'Not the initially set message',
+			Options::TOKEN    => 'Different Token… For some reason…',
+			Options::USER     => 'And a different user just for kicks',
+			Options::SOUND    => Sounds::MAGIC,
+			Options::URL      => 'https://donatstudios.com',
 		]);
 		$this->assertSame([ 'a' => 'b' ], $response);
 
