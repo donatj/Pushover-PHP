@@ -3,6 +3,10 @@
 	<docpage target="README.md">
 
 		<section title="Pushover PHP">
+			<badge-poser type="version" />
+			<badge-poser type="downloads" />
+			<badge-poser type="license" />
+			<badge-travis name="donatj/Pushover-PHP" />
 			<text><![CDATA[
 Pushover PHP is a very light, simple API wrapper for the Pushover API written for PHP.
 ]]></text>
