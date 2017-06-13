@@ -7,7 +7,6 @@ php:
   - 7.0
   - 7.1
   - nightly
-  - hhvm # on Trusty only
 
 matrix:
   allow_failures:
