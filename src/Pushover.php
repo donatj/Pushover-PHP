@@ -10,7 +10,7 @@ namespace donatj\Pushover;
  */
 class Pushover {
 
-	const API_URL = "https://api.pushover.net/1/messages.json";
+	const API_URL = 'https://api.pushover.net/1/messages.json';
 
 	/**
 	 * @var string
