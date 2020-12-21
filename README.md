@@ -78,31 +78,31 @@ class Options {
 	 * 
 	 * Defaults to the token \donatj\Pushover\Pushover was constructed with.
 	 */
-	const TOKEN = 'token';
+	public const TOKEN = 'token';
 	/**
 	 * The User Key.
 	 * 
 	 * Defaults to the user key \donatj\Pushover\Pushover was constructed with.
 	 */
-	const USER = 'user';
+	public const USER = 'user';
 	/**
 	 * The optional devices name for the message to be pushed to.
 	 * 
 	 * If unspecified, your message will be pushed to all devices.
 	 */
-	const DEVICE = 'device';
+	public const DEVICE = 'device';
 	/** The optional message title */
-	const TITLE = 'title';
+	public const TITLE = 'title';
 	/** The optional message url */
-	const URL = 'url';
+	public const URL = 'url';
 	/** The optional message url title. Must specify a URL as well. */
-	const URL_TITLE = 'url_title';
+	public const URL_TITLE = 'url_title';
 	/** The priority of the message being sent. */
-	const PRIORITY = 'priority';
+	public const PRIORITY = 'priority';
 	/** An optional UNIX timestamp for your message. Otherwise the current time is used. */
-	const TIMESTAMP = 'timestamp';
+	public const TIMESTAMP = 'timestamp';
 	/** The sound to play on receiving the pushover message. */
-	const SOUND = 'sound';
+	public const SOUND = 'sound';
 }
 ```
 
@@ -113,11 +113,11 @@ class Options {
 namespace donatj\Pushover;
 
 class Priority {
-	const LOWEST = -2;
-	const LOW = -1;
-	const NORMAL = 0;
-	const HIGH = 1;
-	const EMERGENCY = 2;
+	public const LOWEST = -2;
+	public const LOW = -1;
+	public const NORMAL = 0;
+	public const HIGH = 1;
+	public const EMERGENCY = 2;
 }
 ```
 
@@ -130,7 +130,7 @@ Damn Simple API Interface for Pushover Messages
 namespace donatj\Pushover;
 
 class Pushover {
-	const API_URL = "https://api.pushover.net/1/messages.json";
+	public const API_URL = 'https://api.pushover.net/1/messages.json';
 }
 ```
 
@@ -153,7 +153,7 @@ Create a pushover object
 #### Method: Pushover->send
 
 ```php
-function send($message [, $options = array()])
+function send($message [, array $options = []])
 ```
 
 Send the pushover message
@@ -175,48 +175,48 @@ namespace donatj\Pushover;
 
 class Sounds {
 	/** Pushover (default) */
-	const PUSHOVER = 'pushover';
+	public const PUSHOVER = 'pushover';
 	/** Bike */
-	const BIKE = 'bike';
+	public const BIKE = 'bike';
 	/** Bugle */
-	const BUGLE = 'bugle';
+	public const BUGLE = 'bugle';
 	/** Cash Register */
-	const CASH_REGISTER = 'cashregister';
+	public const CASH_REGISTER = 'cashregister';
 	/** Classical */
-	const CLASSICAL = 'classical';
+	public const CLASSICAL = 'classical';
 	/** Cosmic */
-	const COSMIC = 'cosmic';
+	public const COSMIC = 'cosmic';
 	/** Falling */
-	const FALLING = 'falling';
+	public const FALLING = 'falling';
 	/** Gamelan */
-	const GAMELAN = 'gamelan';
+	public const GAMELAN = 'gamelan';
 	/** Incoming */
-	const INCOMING = 'incoming';
+	public const INCOMING = 'incoming';
 	/** Intermission */
-	const INTERMISSION = 'intermission';
+	public const INTERMISSION = 'intermission';
 	/** Magic */
-	const MAGIC = 'magic';
+	public const MAGIC = 'magic';
 	/** Mechanical */
-	const MECHANICAL = 'mechanical';
+	public const MECHANICAL = 'mechanical';
 	/** Piano Bar */
-	const PIANO_BAR = 'pianobar';
+	public const PIANO_BAR = 'pianobar';
 	/** Siren */
-	const SIREN = 'siren';
+	public const SIREN = 'siren';
 	/** Space Alarm */
-	const SPACE_ALARM = 'spacealarm';
+	public const SPACE_ALARM = 'spacealarm';
 	/** Tug Boat */
-	const TUGBOAT = 'tugboat';
+	public const TUGBOAT = 'tugboat';
 	/** Alien Alarm (long) */
-	const ALIEN = 'alien';
+	public const ALIEN = 'alien';
 	/** Climb (long) */
-	const CLIMB = 'climb';
+	public const CLIMB = 'climb';
 	/** Persistent (long) */
-	const PERSISTENT = 'persistent';
+	public const PERSISTENT = 'persistent';
 	/** Pushover Echo (long) */
-	const PUSHOVER_ECHO = 'echo';
+	public const PUSHOVER_ECHO = 'echo';
 	/** Up Down (long) */
-	const UP_DOWN = 'updown';
+	public const UP_DOWN = 'updown';
 	/** None (silent) */
-	const NONE = 'none';
+	public const NONE = 'none';
 }
 ```
