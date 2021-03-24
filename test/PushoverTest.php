@@ -1,21 +1,17 @@
 <?php
 
-use donatj\MockWebServer\MockWebServer;
 use donatj\Pushover\Options;
 use donatj\Pushover\Pushover;
 use donatj\Pushover\Sounds;
 
-class PushoverTest extends PHPUnit_Framework_TestCase {
+if( class_exists('\PHPUnit\Runner\Version') ) {
+	require __DIR__ . '/BaseServerTest/BaseServerTest_phpunit9.php';
+} else {
+	require __DIR__ . '/BaseServerTest/BaseServerTest_phpunit4.php';
+}
 
-	/**
-	 * @var MockWebServer
-	 */
-	protected static $server;
 
-	public static function setUpBeforeClass() {
-		self::$server = new MockWebServer;
-		self::$server->start();
-	}
+class PushoverTest extends BaseServerTest {
 
 	public function test_BasicMessage() {
 		$url = self::$server->getUrlOfResponse(json_encode([ 'a' => 'b' ]));
@@ -68,7 +64,7 @@ class PushoverTest extends PHPUnit_Framework_TestCase {
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!');
-		$this->assertSame(false, $response);
+		$this->assertFalse($response);
 	}
 
 	public function test_Failure_invalidResponse() {
@@ -76,12 +72,7 @@ class PushoverTest extends PHPUnit_Framework_TestCase {
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!');
-		$this->assertSame(false, $response);
-	}
-
-
-	public static function tearDownAfterClass() {
-		self::$server->stop();
+		$this->assertFalse($response);
 	}
 
 }
