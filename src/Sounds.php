@@ -89,6 +89,10 @@ interface Sounds {
 	 */
 	const UP_DOWN = 'updown';
 	/**
+	 * Vibrate Only
+	 */
+	const VIBRATE = 'vibrate';
+	/**
 	 * None (silent)
 	 */
 	const NONE = 'none';
