@@ -85,6 +85,10 @@ class Options {
 	 * Defaults to the user key \donatj\Pushover\Pushover was constructed with.
 	 */
 	public const USER = 'user';
+	/** To enable HTML formatting, include HTML parameter set to 1. May not be used if monospace is used. */
+	public const HTML = 'html';
+	/** To enable Monospace formatting, include HTML parameter set to 1. May not be used if html is used. */
+	public const MONOSPACE = 'monospace';
 	/**
 	 * The optional devices name for the message to be pushed to.
 	 * 
@@ -216,6 +220,8 @@ class Sounds {
 	public const PUSHOVER_ECHO = 'echo';
 	/** Up Down (long) */
 	public const UP_DOWN = 'updown';
+	/** Vibrate Only */
+	public const VIBRATE = 'vibrate';
 	/** None (silent) */
 	public const NONE = 'none';
 }

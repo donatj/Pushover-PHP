@@ -21,6 +21,14 @@ interface Options {
 	 */
 	const MESSAGE = 'message';
 	/**
+	 * To enable HTML formatting, include HTML parameter set to 1. May not be used if monospace is used.
+	 */
+	const HTML = 'html';
+	/**
+	 * To enable Monospace formatting, include HTML parameter set to 1. May not be used if html is used.
+	 */
+	const MONOSPACE = 'monospace';
+	/**
 	 * The optional devices name for the message to be pushed to.
 	 *
 	 * If unspecified, your message will be pushed to all devices.
