@@ -3,7 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/donatj/pushover/version)](https://packagist.org/packages/donatj/pushover)
 [![Total Downloads](https://poser.pugx.org/donatj/pushover/downloads)](https://packagist.org/packages/donatj/pushover)
 [![License](https://poser.pugx.org/donatj/pushover/license)](https://packagist.org/packages/donatj/pushover)
-[![Build Status](https://travis-ci.org/donatj/Pushover-PHP.svg?branch=master)](https://travis-ci.org/donatj/Pushover-PHP)
+[![Build Status](https://github.com/donatj/Pushover-PHP/workflows/CI/badge.svg?)](https://github.com/donatj/Pushover-PHP/actions?query=workflow%3ACI)
 
 
 Pushover PHP is a very light, simple API wrapper for the Pushover API written for PHP.
