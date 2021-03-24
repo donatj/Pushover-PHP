@@ -4,8 +4,9 @@ use donatj\MockWebServer\MockWebServer;
 use donatj\Pushover\Options;
 use donatj\Pushover\Pushover;
 use donatj\Pushover\Sounds;
+use PHPUnit\Framework\TestCase;
 
-class PushoverTest extends PHPUnit_Framework_TestCase {
+class PushoverTest extends TestCase {
 
 	/**
 	 * @var MockWebServer
@@ -68,7 +69,7 @@ class PushoverTest extends PHPUnit_Framework_TestCase {
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!');
-		$this->assertSame(false, $response);
+		$this->assertFalse($response);
 	}
 
 	public function test_Failure_invalidResponse() {
@@ -76,7 +77,7 @@ class PushoverTest extends PHPUnit_Framework_TestCase {
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!');
-		$this->assertSame(false, $response);
+		$this->assertFalse($response);
 	}
 
 
