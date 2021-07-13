@@ -3,7 +3,7 @@
 namespace donatj\Pushover;
 
 /**
- * Damn Simple API Interface for Pushover Messages
+ * Dead Simple API Interface for Pushover Messages
  *
  * @author Jesse G. Donat <donatj@gmail.com>
  * @license MIT

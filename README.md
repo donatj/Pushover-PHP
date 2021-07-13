@@ -127,7 +127,7 @@ class Priority {
 
 ### Class: \donatj\Pushover\Pushover
 
-Damn Simple API Interface for Pushover Messages
+Dead Simple API Interface for Pushover Messages
 
 ```php
 <?php
