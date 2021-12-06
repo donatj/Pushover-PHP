@@ -11,6 +11,9 @@
 			<text><![CDATA[
 Pushover PHP is a very light, simple API wrapper for the Pushover API written for PHP.
 ]]></text>
+			<section title="Requirements">
+				<composer-requires/>
+			</section>
 			<section title="Installing">
 				<composer-install/>
 			</section>

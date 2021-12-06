@@ -13,9 +13,13 @@ $po = new Pushover('{my_apikey}', '{my_userkey}');
 $po->send('Hello World') or die('Message Failed');
 
 // With Options:
-$po->send('Awesome website, great job!', [
+$success = $po->send('Awesome website, great job!', [
 	Options::TITLE    => 'New Comment!',
 	Options::URL      => 'https://donatstudios.com/CsvToMarkdownTable',
 	Options::PRIORITY => Priority::HIGH,
 	Options::SOUND    => Sounds::ALIEN,
-]) or die('Message Failed');
+]);
+
+if( !$success ) {
+	throw new RuntimeException("Pushover failed!");
+}

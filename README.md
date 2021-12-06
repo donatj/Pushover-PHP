@@ -3,11 +3,16 @@
 [![Latest Stable Version](https://poser.pugx.org/donatj/pushover/version)](https://packagist.org/packages/donatj/pushover)
 [![Total Downloads](https://poser.pugx.org/donatj/pushover/downloads)](https://packagist.org/packages/donatj/pushover)
 [![License](https://poser.pugx.org/donatj/pushover/license)](https://packagist.org/packages/donatj/pushover)
-[![Build Status](https://github.com/donatj/Pushover-PHP/workflows/CI/badge.svg?)](https://github.com/donatj/Pushover-PHP/actions?query=workflow%3ACI)
+[![CI](https://github.com/donatj/Pushover-PHP/workflows/CI/badge.svg?)](https://github.com/donatj/Pushover-PHP/actions?query=workflow%3ACI)
 
 
 Pushover PHP is a very light, simple API wrapper for the Pushover API written for PHP.
 
+
+## Requirements
+
+- **php**: >=5.4.0
+- **ext-json**: *
 
 ## Installing
 
@@ -35,12 +40,16 @@ $po = new Pushover('{my_apikey}', '{my_userkey}');
 $po->send('Hello World') or die('Message Failed');
 
 // With Options:
-$po->send('Awesome website, great job!', [
+$success = $po->send('Awesome website, great job!', [
 	Options::TITLE    => 'New Comment!',
 	Options::URL      => 'https://donatstudios.com/CsvToMarkdownTable',
 	Options::PRIORITY => Priority::HIGH,
 	Options::SOUND    => Sounds::ALIEN,
-]) or die('Message Failed');
+]);
+
+if( !$success ) {
+	throw new RuntimeException("Pushover failed!");
+}
 
 ```
 
