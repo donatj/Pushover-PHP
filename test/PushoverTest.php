@@ -1,5 +1,6 @@
 <?php
 
+use donatj\MockWebServer\Response;
 use donatj\Pushover\Options;
 use donatj\Pushover\Pushover;
 use donatj\Pushover\Sounds;
@@ -14,24 +15,24 @@ if( class_exists('\PHPUnit\Runner\Version') ) {
 class PushoverTest extends BaseServerTest {
 
 	public function test_BasicMessage() {
-		$url = self::$server->getUrlOfResponse(json_encode([ 'a' => 'b' ]));
+		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b' ])));
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!');
 		$this->assertSame([ 'a' => 'b' ], $response);
 
 		$request = self::$server->getLastRequest();
-		$this->assertSame('POST', $request['METHOD']);
-		$this->assertSame('application/x-www-form-urlencoded', $request['HEADERS']['Content-Type']);
+		$this->assertSame('POST', $request->getRequestMethod());
+		$this->assertSame('application/x-www-form-urlencoded', $request->getHeaders()['Content-Type']);
 		$this->assertSame([
 			'token'   => 'token',
 			'user'    => 'user',
 			'message' => 'Hello World!',
-		], $request['PARSED_INPUT']);
+		], $request->getParsedInput());
 	}
 
 	public function test_ComplexMessage() {
-		$url = self::$server->getUrlOfResponse(json_encode([ 'a' => 'b' ]));
+		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b' ])));
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!', [
@@ -46,8 +47,8 @@ class PushoverTest extends BaseServerTest {
 		$this->assertSame([ 'a' => 'b' ], $response);
 
 		$request = self::$server->getLastRequest();
-		$this->assertSame('POST', $request['METHOD']);
-		$this->assertSame('application/x-www-form-urlencoded', $request['HEADERS']['Content-Type']);
+		$this->assertSame('POST', $request->getRequestMethod());
+		$this->assertSame('application/x-www-form-urlencoded', $request->getHeaders()['Content-Type']);
 		$this->assertSame([
 			'device'   => 'totem',
 			'priority' => '1',
@@ -56,11 +57,11 @@ class PushoverTest extends BaseServerTest {
 			'user'     => 'user',
 			'sound'    => 'magic',
 			'url'      => 'https://donatstudios.com',
-		], $request['PARSED_INPUT']);
+		], $request->getParsedInput());
 	}
 
 	public function test_Failure_non200() {
-		$url = self::$server->getUrlOfResponse(json_encode([ 'a' => 'b' ]), [], 500);
+		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b' ]), [], 500));
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!');
@@ -68,7 +69,7 @@ class PushoverTest extends BaseServerTest {
 	}
 
 	public function test_Failure_invalidResponse() {
-		$url = self::$server->getUrlOfResponse('this is not JSON like at all');
+		$url = self::$server->getUrlOfResponse(new Response('this is not JSON like at all'));
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!');
