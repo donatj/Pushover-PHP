@@ -25,7 +25,12 @@
 		"ext-json": "*"
 	},
 	"require-dev": {
-		"donatj/mock-webserver": "^2.0.0",
+		"donatj/mock-webserver": "^2.6",
 		"phpunit/phpunit": "~4.8|~9"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	}
 }
