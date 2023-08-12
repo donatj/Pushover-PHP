@@ -11,7 +11,6 @@ if( class_exists('\PHPUnit\Runner\Version') ) {
 	require __DIR__ . '/BaseServerTest/BaseServerTest_phpunit4.php';
 }
 
-
 class PushoverTest extends BaseServerTest {
 
 	public function test_BasicMessage() {

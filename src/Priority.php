@@ -3,9 +3,11 @@
 namespace donatj\Pushover;
 
 interface Priority {
-	const LOWEST    = -2;
-	const LOW       = -1;
-	const NORMAL    = 0;
-	const HIGH      = 1;
-	const EMERGENCY = 2;
+
+	public const LOWEST    = -2;
+	public const LOW       = -1;
+	public const NORMAL    = 0;
+	public const HIGH      = 1;
+	public const EMERGENCY = 2;
+
 }
