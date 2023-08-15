@@ -1,7 +1,7 @@
 {
 	"name": "donatj/pushover",
 	"type": "library",
-	"description": "A very simple Pushover.net client",
+	"description": "Simple Pushover.net client",
 	"keywords": [
 		"Pushover",
 		"pushover.net"
@@ -21,15 +21,15 @@
 		}
 	},
 	"require": {
-		"php": ">=7.1",
+		"php": ">=7.3",
 		"ext-json": "*"
 	},
 	"require-dev": {
 		"donatj/mock-webserver": "^2.6",
-		"phpunit/phpunit": "^4.8|^9.0",
+		"phpunit/phpunit": "^9.6",
 		"squizlabs/php_codesniffer": "^3.7",
 		"corpus/coding-standard": "^0.6.0",
-		"friendsofphp/php-cs-fixer": "^2.19"
+		"friendsofphp/php-cs-fixer": "^3.4"
 	},
 	"config": {
 		"allow-plugins": {

@@ -20,8 +20,8 @@ fix: cbf fixer
 
 .PHONY: fixer
 fixer:
-	PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix
+	vendor/bin/php-cs-fixer fix
 
 .PHONY: fixer-dry-run
 fixer-dry-run:
-	PHP_CS_FIXER_IGNORE_ENV=1 vendor/bin/php-cs-fixer fix --dry-run
+	vendor/bin/php-cs-fixer fix --dry-run

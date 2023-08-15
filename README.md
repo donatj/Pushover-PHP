@@ -11,7 +11,7 @@ Pushover PHP is a very light, simple API wrapper for the Pushover API written fo
 
 ## Requirements
 
-- **php**: >=7.1
+- **php**: >=7.3
 - **ext-json**: *
 
 ## Installing
@@ -85,6 +85,7 @@ namespace donatj\Pushover\Exceptions;
 class ResponseException {
 	public const ERROR_CONNECTION_FAILED = 100;
 	public const ERROR_DECODE_FAILED = 200;
+	public const ERROR_UNEXPECTED = 300;
 }
 ```
 
