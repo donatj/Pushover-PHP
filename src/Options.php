@@ -49,4 +49,7 @@ interface Options {
 	 */
 	public const SOUND = 'sound';
 
+	/** A number of seconds that the message will live, before being deleted automatically */
+	public const TTL = 'ttl';
+
 }
