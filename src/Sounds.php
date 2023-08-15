@@ -2,6 +2,9 @@
 
 namespace donatj\Pushover;
 
+/**
+ * Contains legal values for 'sound'
+ */
 interface Sounds {
 
 	/** Pushover (default) */

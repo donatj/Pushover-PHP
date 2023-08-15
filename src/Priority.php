@@ -2,6 +2,9 @@
 
 namespace donatj\Pushover;
 
+/**
+ * Contains all legal values for 'priority'
+ */
 interface Priority {
 
 	public const LOWEST    = -2;

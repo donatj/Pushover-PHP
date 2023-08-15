@@ -2,6 +2,11 @@
 
 namespace donatj\Pushover;
 
+/**
+ * Contains available option keys for the Pushover API
+ *
+ * @see https://pushover.net/api
+ */
 interface Options {
 
 	/**

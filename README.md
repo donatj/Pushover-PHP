@@ -75,7 +75,11 @@ if( !$po->send('Hello World!') ) {
 ```
 
 
+### Class: \donatj\Pushover\Exceptions\ResponseException
+
 ### Class: \donatj\Pushover\Options
+
+Contains available option keys for the Pushover API
 
 ```php
 <?php
@@ -116,10 +120,14 @@ class Options {
 	public const TIMESTAMP = 'timestamp';
 	/** The sound to play on receiving the pushover message. */
 	public const SOUND = 'sound';
+	/** A number of seconds that the message will live, before being deleted automatically */
+	public const TTL = 'ttl';
 }
 ```
 
 ### Class: \donatj\Pushover\Priority
+
+Contains all legal values for 'priority'
 
 ```php
 <?php
@@ -166,7 +174,7 @@ Create a pushover object
 #### Method: Pushover->send
 
 ```php
-function send(string $message [, array $options = []])
+function send(string $message [, array $options = []]) : array
 ```
 
 Send the pushover message
@@ -178,9 +186,11 @@ Send the pushover message
 
 ##### Returns:
 
-- ***array*** | ***bool*** - Returns false on failure, or a data array on success
+- ***array*** - The decoded JSON response as an associative array
 
 ### Class: \donatj\Pushover\Sounds
+
+Contains legal values for 'sound'
 
 ```php
 <?php
