@@ -78,6 +78,16 @@ if( !$po->send('Hello World!') ) {
 
 ### Class: \donatj\Pushover\Exceptions\ResponseException
 
+```php
+<?php
+namespace donatj\Pushover\Exceptions;
+
+class ResponseException {
+	public const ERROR_CONNECTION_FAILED = 100;
+	public const ERROR_DECODE_FAILED = 200;
+}
+```
+
 ### Class: \donatj\Pushover\Options
 
 Contains available option keys for the Pushover API
@@ -184,6 +194,8 @@ Send the pushover message
 
 - ***string*** `$message` - The message to send
 - ***array*** `$options` - Optional configuration settings
+
+**Throws**: `\donatj\Pushover\Exceptions\ResponseException` - On failure to connect or decode the response
 
 ##### Returns:
 

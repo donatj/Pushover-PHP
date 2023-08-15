@@ -63,6 +63,7 @@ class PushoverTest extends BaseServerTest {
 	public function test_Failure_non200() : void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Failed to connect/');
+		$this->expectExceptionCode(ResponseException::ERROR_CONNECTION_FAILED);
 		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b' ]), [], 500));
 		$p   = new Pushover('token', 'user', $url);
 
@@ -73,6 +74,7 @@ class PushoverTest extends BaseServerTest {
 	public function test_Failure_badUrl() : void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Failed to connect/');
+		$this->expectExceptionCode(ResponseException::ERROR_CONNECTION_FAILED);
 
 		$p = new Pushover('token', 'user', 'this is not a url');
 
@@ -83,6 +85,7 @@ class PushoverTest extends BaseServerTest {
 	public function test_Failure_invalidResponse() : void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Failed to decode/');
+		$this->expectExceptionCode(ResponseException::ERROR_DECODE_FAILED);
 		$url = self::$server->getUrlOfResponse(new Response('this is not JSON like at all'));
 		$p   = new Pushover('token', 'user', $url);
 

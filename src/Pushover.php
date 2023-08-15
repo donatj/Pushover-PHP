@@ -43,6 +43,7 @@ class Pushover {
 	 *
 	 * @param string $message The message to send
 	 * @param array  $options Optional configuration settings
+	 * @throws ResponseException On failure to connect or decode the response
 	 * @return array       The decoded JSON response as an associative array
 	 */
 	public function send( string $message, array $options = [] ) : array {
@@ -60,12 +61,18 @@ class Pushover {
 
 		$result = @file_get_contents($this->apiUrl, false, $context);
 		if( !$result ) {
-			throw new ResponseException('Failed to connect to Pushover API');
+			throw new ResponseException(
+				'Failed to connect to Pushover API',
+				ResponseException::ERROR_CONNECTION_FAILED
+			);
 		}
 
 		$final = @json_decode($result, true);
 		if( !is_array($final) ) {
-			throw new ResponseException('Failed to decode Pushover API response');
+			throw new ResponseException(
+				'Failed to decode Pushover API response',
+				ResponseException::ERROR_DECODE_FAILED
+			);
 		}
 
 		return $final;
