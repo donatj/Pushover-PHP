@@ -101,4 +101,27 @@ class PushoverTest extends TestCase {
 		$this->assertFalse($response);
 	}
 
+	/**
+	 * @dataProvider provideUnexpectedJSON
+	 */
+	public function test_Failure_unexpectedResponse(string $json) : void {
+		$this->expectException(ResponseException::class);
+		$this->expectExceptionMessageMatches('/^Unexpected response/');
+		$this->expectExceptionCode(ResponseException::ERROR_UNEXPECTED);
+		$url = self::$server->getUrlOfResponse(new Response($json));
+		$p   = new Pushover('token', 'user', $url);
+
+		$response = $p->send('Hello World!');
+		$this->assertFalse($response);
+	}
+
+	public function provideUnexpectedJSON() : \Generator {
+		yield [ 'null' ];
+		yield [ 'true' ];
+		yield [ 'false' ];
+		yield [ '0' ];
+		yield [ '1' ];
+		yield [ '""' ];
+	}
+
 }

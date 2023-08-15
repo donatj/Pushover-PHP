@@ -60,18 +60,27 @@ class Pushover {
 		$context = stream_context_create($opts);
 
 		$result = @file_get_contents($this->apiUrl, false, $context);
-		if( !$result ) {
+		if( $result === false ) {
 			throw new ResponseException(
 				'Failed to connect to Pushover API',
 				ResponseException::ERROR_CONNECTION_FAILED
 			);
 		}
 
-		$final = @json_decode($result, true);
-		if( !is_array($final) ) {
+		try {
+			$final = json_decode($result, true, 512, JSON_THROW_ON_ERROR);
+		}catch( \JsonException $ex ) {
 			throw new ResponseException(
 				'Failed to decode Pushover API response',
-				ResponseException::ERROR_DECODE_FAILED
+				ResponseException::ERROR_DECODE_FAILED,
+				$ex
+			);
+		}
+
+		if( !is_array($final) ) {
+			throw new ResponseException(
+				'Unexpected response from Pushover API',
+				ResponseException::ERROR_UNEXPECTED
 			);
 		}
 
