@@ -9,57 +9,44 @@ interface Options {
 	 *
 	 * Defaults to the token \donatj\Pushover\Pushover was constructed with.
 	 */
-	const TOKEN = 'token';
+	public const TOKEN = 'token';
 	/**
 	 * The User Key.
 	 *
 	 * Defaults to the user key \donatj\Pushover\Pushover was constructed with.
 	 */
-	const USER = 'user';
-	/**
-	 * @access private
-	 */
-	const MESSAGE = 'message';
-	/**
-	 * To enable HTML formatting, include HTML parameter set to 1. May not be used if monospace is used.
-	 */
-	const HTML = 'html';
-	/**
-	 * To enable Monospace formatting, include HTML parameter set to 1. May not be used if html is used.
-	 */
-	const MONOSPACE = 'monospace';
+	public const USER = 'user';
+	/** @access private */
+	public const MESSAGE = 'message';
+	/** To enable HTML formatting, include HTML parameter set to 1. May not be used if monospace is used. */
+	public const HTML = 'html';
+	/** To enable Monospace formatting, include HTML parameter set to 1. May not be used if html is used. */
+	public const MONOSPACE = 'monospace';
 	/**
 	 * The optional devices name for the message to be pushed to.
 	 *
 	 * If unspecified, your message will be pushed to all devices.
 	 */
-	const DEVICE = 'device';
-	/**
-	 * The optional message title
-	 */
-	const TITLE = 'title';
-	/**
-	 * The optional message url
-	 */
-	const URL = 'url';
-	/**
-	 * The optional message url title. Must specify a URL as well.
-	 */
-	const URL_TITLE = 'url_title';
+	public const DEVICE = 'device';
+	/** The optional message title */
+	public const TITLE = 'title';
+	/** The optional message url */
+	public const URL = 'url';
+	/** The optional message url title. Must specify a URL as well. */
+	public const URL_TITLE = 'url_title';
 	/**
 	 * The priority of the message being sent.
 	 *
 	 * @see \donatj\Pushover\Priority for Available options
 	 */
-	const PRIORITY = 'priority';
-	/**
-	 * An optional UNIX timestamp for your message. Otherwise the current time is used.
-	 */
-	const TIMESTAMP = 'timestamp';
+	public const PRIORITY = 'priority';
+	/** An optional UNIX timestamp for your message. Otherwise the current time is used. */
+	public const TIMESTAMP = 'timestamp';
 	/**
 	 * The sound to play on receiving the pushover message.
 	 *
 	 * @see \donatj\Pushover\Sounds for Available options
 	 */
-	const SOUND = 'sound';
+	public const SOUND = 'sound';
+
 }

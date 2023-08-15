@@ -10,31 +10,25 @@ namespace donatj\Pushover;
  */
 class Pushover {
 
-	const API_URL = 'https://api.pushover.net/1/messages.json';
+	public const API_URL = 'https://api.pushover.net/1/messages.json';
 
-	/**
-	 * @var string
-	 */
+	/** @var string */
 	private $token;
 
-	/**
-	 * @var string
-	 */
+	/** @var string */
 	private $user;
 
-	/**
-	 * @var string
-	 */
+	/** @var string */
 	private $apiUrl;
 
 	/**
 	 * Create a pushover object
 	 *
-	 * @param string $token The application API token
-	 * @param string $user Your user key
+	 * @param string $token  The application API token
+	 * @param string $user   Your user key
 	 * @param string $apiUrl Optionally change the API URL
 	 */
-	public function __construct( $token, $user, $apiUrl = self::API_URL ) {
+	public function __construct( string $token, string $user, string $apiUrl = self::API_URL ) {
 		$this->token  = $token;
 		$this->user   = $user;
 		$this->apiUrl = $apiUrl;
@@ -45,11 +39,11 @@ class Pushover {
 	 *
 	 * @see    https://pushover.net/api
 	 *
-	 * @param  string $message The message to send
-	 * @param  array  $options Optional configuration settings
-	 * @return bool|array       Returns false on failure, or a data array on success
+	 * @param string $message The message to send
+	 * @param array  $options Optional configuration settings
+	 * @return array|bool       Returns false on failure, or a data array on success
 	 */
-	public function send( $message, array $options = [] ) {
+	public function send( string $message, array $options = [] ) {
 		$options[Options::TOKEN]   = $this->token;
 		$options[Options::USER]    = $this->user;
 		$options[Options::MESSAGE] = $message;
@@ -70,4 +64,5 @@ class Pushover {
 
 		return false;
 	}
+
 }

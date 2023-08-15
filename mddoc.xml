@@ -6,7 +6,7 @@
 			<badge-poser type="version" />
 			<badge-poser type="downloads" />
 			<badge-poser type="license" />
-			<badge-github-action name="donatj/Pushover-PHP" workflow="CI"/>
+			<badge-github-action name="donatj/Pushover-PHP" workflow-file="ci.yml"/>
 
 			<text><![CDATA[
 Pushover PHP is a very light, simple API wrapper for the Pushover API written for PHP.
@@ -42,7 +42,7 @@ if( !$po->send('Hello World!') ) {
 }
 ```
 ]]></text>
-				<recursivedirectory name="src"/>
+				<recursive-directory name="src"/>
 			</section>
 		</section>
 	</docpage>

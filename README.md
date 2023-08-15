@@ -3,7 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/donatj/pushover/version)](https://packagist.org/packages/donatj/pushover)
 [![Total Downloads](https://poser.pugx.org/donatj/pushover/downloads)](https://packagist.org/packages/donatj/pushover)
 [![License](https://poser.pugx.org/donatj/pushover/license)](https://packagist.org/packages/donatj/pushover)
-[![CI](https://github.com/donatj/Pushover-PHP/workflows/CI/badge.svg?)](https://github.com/donatj/Pushover-PHP/actions?query=workflow%3ACI)
+[![ci.yml](https://github.com/donatj/Pushover-PHP/actions/workflows/ci.yml/badge.svg?)](https://github.com/donatj/Pushover-PHP/actions/workflows/ci.yml)
 
 
 Pushover PHP is a very light, simple API wrapper for the Pushover API written for PHP.
@@ -11,7 +11,7 @@ Pushover PHP is a very light, simple API wrapper for the Pushover API written fo
 
 ## Requirements
 
-- **php**: >=5.4.0
+- **php**: >=7.1
 - **ext-json**: *
 
 ## Installing
@@ -150,7 +150,7 @@ class Pushover {
 #### Method: Pushover->__construct
 
 ```php
-function __construct($token, $user [, $apiUrl = self::API_URL])
+function __construct(string $token, string $user [, string $apiUrl = self::API_URL])
 ```
 
 Create a pushover object
@@ -166,7 +166,7 @@ Create a pushover object
 #### Method: Pushover->send
 
 ```php
-function send($message [, array $options = []])
+function send(string $message [, array $options = []])
 ```
 
 Send the pushover message
@@ -178,7 +178,7 @@ Send the pushover message
 
 ##### Returns:
 
-- ***bool*** | ***array*** - Returns false on failure, or a data array on success
+- ***array*** | ***bool*** - Returns false on failure, or a data array on success
 
 ### Class: \donatj\Pushover\Sounds
 

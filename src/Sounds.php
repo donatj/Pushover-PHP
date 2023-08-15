@@ -4,96 +4,51 @@ namespace donatj\Pushover;
 
 interface Sounds {
 
-	/**
-	 * Pushover (default)
-	 */
-	const PUSHOVER = 'pushover';
-	/**
-	 * Bike
-	 */
-	const BIKE = 'bike';
-	/**
-	 * Bugle
-	 */
-	const BUGLE = 'bugle';
-	/**
-	 * Cash Register
-	 */
-	const CASH_REGISTER = 'cashregister';
-	/**
-	 * Classical
-	 */
-	const CLASSICAL = 'classical';
-	/**
-	 * Cosmic
-	 */
-	const COSMIC = 'cosmic';
-	/**
-	 * Falling
-	 */
-	const FALLING = 'falling';
-	/**
-	 * Gamelan
-	 */
-	const GAMELAN = 'gamelan';
-	/**
-	 * Incoming
-	 */
-	const INCOMING = 'incoming';
-	/**
-	 * Intermission
-	 */
-	const INTERMISSION = 'intermission';
-	/**
-	 * Magic
-	 */
-	const MAGIC = 'magic';
-	/**
-	 * Mechanical
-	 */
-	const MECHANICAL = 'mechanical';
-	/**
-	 * Piano Bar
-	 */
-	const PIANO_BAR = 'pianobar';
-	/**
-	 * Siren
-	 */
-	const SIREN = 'siren';
-	/**
-	 * Space Alarm
-	 */
-	const SPACE_ALARM = 'spacealarm';
-	/**
-	 * Tug Boat
-	 */
-	const TUGBOAT = 'tugboat';
-	/**
-	 * Alien Alarm (long)
-	 */
-	const ALIEN = 'alien';
-	/**
-	 * Climb (long)
-	 */
-	const CLIMB = 'climb';
-	/**
-	 * Persistent (long)
-	 */
-	const PERSISTENT = 'persistent';
-	/**
-	 * Pushover Echo (long)
-	 */
-	const PUSHOVER_ECHO = 'echo';
-	/**
-	 * Up Down (long)
-	 */
-	const UP_DOWN = 'updown';
-	/**
-	 * Vibrate Only
-	 */
-	const VIBRATE = 'vibrate';
-	/**
-	 * None (silent)
-	 */
-	const NONE = 'none';
+	/** Pushover (default) */
+	public const PUSHOVER = 'pushover';
+	/** Bike */
+	public const BIKE = 'bike';
+	/** Bugle */
+	public const BUGLE = 'bugle';
+	/** Cash Register */
+	public const CASH_REGISTER = 'cashregister';
+	/** Classical */
+	public const CLASSICAL = 'classical';
+	/** Cosmic */
+	public const COSMIC = 'cosmic';
+	/** Falling */
+	public const FALLING = 'falling';
+	/** Gamelan */
+	public const GAMELAN = 'gamelan';
+	/** Incoming */
+	public const INCOMING = 'incoming';
+	/** Intermission */
+	public const INTERMISSION = 'intermission';
+	/** Magic */
+	public const MAGIC = 'magic';
+	/** Mechanical */
+	public const MECHANICAL = 'mechanical';
+	/** Piano Bar */
+	public const PIANO_BAR = 'pianobar';
+	/** Siren */
+	public const SIREN = 'siren';
+	/** Space Alarm */
+	public const SPACE_ALARM = 'spacealarm';
+	/** Tug Boat */
+	public const TUGBOAT = 'tugboat';
+	/** Alien Alarm (long) */
+	public const ALIEN = 'alien';
+	/** Climb (long) */
+	public const CLIMB = 'climb';
+	/** Persistent (long) */
+	public const PERSISTENT = 'persistent';
+	/** Pushover Echo (long) */
+	public const PUSHOVER_ECHO = 'echo';
+	/** Up Down (long) */
+	public const UP_DOWN = 'updown';
+	/** Vibrate Only */
+	public const VIBRATE = 'vibrate';
+	/** None (silent) */
+	public const NONE = 'none';
+
 }
