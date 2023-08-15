@@ -17,4 +17,16 @@ abstract class BaseServerTest extends TestCase {
 		self::$server->stop();
 	}
 
+	public function expectException() : void {
+		// noop
+	}
+
+	public function expectExceptionCode() : void {
+		// noop
+	}
+
+	public function expectExceptionMessageMatches() : void {
+		// noop
+	}
+
 }

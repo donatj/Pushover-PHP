@@ -60,6 +60,10 @@ class PushoverTest extends BaseServerTest {
 		], $request->getParsedInput());
 	}
 
+	/**
+	 * @expectedException \donatj\Pushover\Exceptions\ResponseException
+	 * @expectedExceptionCode \donatj\Pushover\Exceptions\ResponseException::ERROR_CONNECTION_FAILED
+	 */
 	public function test_Failure_non200() : void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Failed to connect/');
@@ -71,6 +75,10 @@ class PushoverTest extends BaseServerTest {
 		$this->assertFalse($response);
 	}
 
+	/**
+	 * @expectedException \donatj\Pushover\Exceptions\ResponseException
+	 * @expectedExceptionCode \donatj\Pushover\Exceptions\ResponseException::ERROR_CONNECTION_FAILED
+	 */
 	public function test_Failure_badUrl() : void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Failed to connect/');
@@ -82,6 +90,10 @@ class PushoverTest extends BaseServerTest {
 		$this->assertFalse($response);
 	}
 
+	/**
+	 * @expectedException \donatj\Pushover\Exceptions\ResponseException
+	 * @expectedExceptionCode \donatj\Pushover\Exceptions\ResponseException::ERROR_DECODE_FAILED
+	 */
 	public function test_Failure_invalidResponse() : void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Failed to decode/');

@@ -3,7 +3,6 @@
 $finder = PhpCsFixer\Finder::create()
 	->files()
 	->in(__DIR__ . '/src')
-	->in(__DIR__ . '/test')
 	->name('*.php');
 
 $finder->files()->append([ __DIR__ . 'composer/bin/mddoc' ]);
