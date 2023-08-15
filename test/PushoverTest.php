@@ -1,18 +1,26 @@
 <?php
 
+use donatj\MockWebServer\MockWebServer;
 use donatj\MockWebServer\Response;
 use donatj\Pushover\Exceptions\ResponseException;
 use donatj\Pushover\Options;
 use donatj\Pushover\Pushover;
 use donatj\Pushover\Sounds;
+use PHPUnit\Framework\TestCase;
 
-if( class_exists('\PHPUnit\Runner\Version') ) {
-	require __DIR__ . '/BaseServerTest/BaseServerTest_phpunit9.php';
-} else {
-	require __DIR__ . '/BaseServerTest/BaseServerTest_phpunit4.php';
-}
+class PushoverTest extends TestCase {
 
-class PushoverTest extends BaseServerTest {
+	/** @var MockWebServer */
+	private static $server;
+
+	public static function setUpBeforeClass() : void {
+		self::$server = new MockWebServer;
+		self::$server->start();
+	}
+
+	public static function tearDownAfterClass() : void {
+		self::$server->stop();
+	}
 
 	public function test_BasicMessage() : void {
 		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b' ])));
@@ -60,10 +68,6 @@ class PushoverTest extends BaseServerTest {
 		], $request->getParsedInput());
 	}
 
-	/**
-	 * @expectedException \donatj\Pushover\Exceptions\ResponseException
-	 * @expectedExceptionCode \donatj\Pushover\Exceptions\ResponseException::ERROR_CONNECTION_FAILED
-	 */
 	public function test_Failure_non200() : void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Failed to connect/');
@@ -75,10 +79,6 @@ class PushoverTest extends BaseServerTest {
 		$this->assertFalse($response);
 	}
 
-	/**
-	 * @expectedException \donatj\Pushover\Exceptions\ResponseException
-	 * @expectedExceptionCode \donatj\Pushover\Exceptions\ResponseException::ERROR_CONNECTION_FAILED
-	 */
 	public function test_Failure_badUrl() : void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Failed to connect/');
@@ -90,10 +90,6 @@ class PushoverTest extends BaseServerTest {
 		$this->assertFalse($response);
 	}
 
-	/**
-	 * @expectedException \donatj\Pushover\Exceptions\ResponseException
-	 * @expectedExceptionCode \donatj\Pushover\Exceptions\ResponseException::ERROR_DECODE_FAILED
-	 */
 	public function test_Failure_invalidResponse() : void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Failed to decode/');

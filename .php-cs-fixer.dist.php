@@ -3,6 +3,7 @@
 $finder = PhpCsFixer\Finder::create()
 	->files()
 	->in(__DIR__ . '/src')
+	->in(__DIR__ . '/test')
 	->name('*.php');
 
 $finder->files()->append([ __DIR__ . 'composer/bin/mddoc' ]);
@@ -16,6 +17,8 @@ return (new PhpCsFixer\Config)
 	->setRules(
 		[
 			'@PHPUnit60Migration:risky'              => true,
+			'@PHPUnit75Migration:risky'              => true,
+			'@PHPUnit84Migration:risky'              => true,
 			'php_unit_test_case_static_method_calls' => [
 				'call_type' => 'this',
 			],
