@@ -1,6 +1,7 @@
 <?php
 
 use donatj\MockWebServer\MockWebServer;
+use donatj\MockWebServer\RequestInfo;
 use donatj\MockWebServer\Response;
 use donatj\Pushover\Exceptions\ResponseException;
 use donatj\Pushover\Options;
@@ -23,13 +24,14 @@ class PushoverTest extends TestCase {
 	}
 
 	public function test_BasicMessage() : void {
-		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b', 'status' => 1])));
+		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b', 'status' => 1 ], JSON_THROW_ON_ERROR)));
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!');
 		$this->assertSame([ 'a' => 'b', 'status' => 1 ], $response);
 
 		$request = self::$server->getLastRequest();
+		$this->assertInstanceOf(RequestInfo::class, $request);
 		$this->assertSame('POST', $request->getRequestMethod());
 		$this->assertSame('application/x-www-form-urlencoded', $request->getHeaders()['Content-Type']);
 		$this->assertSame([
@@ -40,7 +42,7 @@ class PushoverTest extends TestCase {
 	}
 
 	public function test_ComplexMessage() : void {
-		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b', 'status' => 1])));
+		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b', 'status' => 1 ], JSON_THROW_ON_ERROR)));
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!', [
@@ -55,6 +57,7 @@ class PushoverTest extends TestCase {
 		$this->assertSame([ 'a' => 'b', 'status' => 1 ], $response);
 
 		$request = self::$server->getLastRequest();
+		$this->assertInstanceOf(RequestInfo::class, $request);
 		$this->assertSame('POST', $request->getRequestMethod());
 		$this->assertSame('application/x-www-form-urlencoded', $request->getHeaders()['Content-Type']);
 		$this->assertSame([
@@ -72,7 +75,7 @@ class PushoverTest extends TestCase {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Pushover API returned an error/');
 		$this->expectExceptionCode(ResponseException::ERROR_API);
-		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b', 'status' => 0 ]), [], 500));
+		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b', 'status' => 0 ], JSON_THROW_ON_ERROR), [], 500));
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!');
