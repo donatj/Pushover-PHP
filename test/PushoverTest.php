@@ -23,11 +23,11 @@ class PushoverTest extends TestCase {
 	}
 
 	public function test_BasicMessage() : void {
-		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b' ])));
+		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b', 'status' => 1])));
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!');
-		$this->assertSame([ 'a' => 'b' ], $response);
+		$this->assertSame([ 'a' => 'b', 'status' => 1 ], $response);
 
 		$request = self::$server->getLastRequest();
 		$this->assertSame('POST', $request->getRequestMethod());
@@ -40,7 +40,7 @@ class PushoverTest extends TestCase {
 	}
 
 	public function test_ComplexMessage() : void {
-		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b' ])));
+		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b', 'status' => 1])));
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!', [
@@ -52,7 +52,7 @@ class PushoverTest extends TestCase {
 			Options::SOUND    => Sounds::MAGIC,
 			Options::URL      => 'https://donatstudios.com',
 		]);
-		$this->assertSame([ 'a' => 'b' ], $response);
+		$this->assertSame([ 'a' => 'b', 'status' => 1 ], $response);
 
 		$request = self::$server->getLastRequest();
 		$this->assertSame('POST', $request->getRequestMethod());
@@ -68,11 +68,11 @@ class PushoverTest extends TestCase {
 		], $request->getParsedInput());
 	}
 
-	public function test_Failure_non200() : void {
+	public function test_Failure_status0() : void {
 		$this->expectException(ResponseException::class);
-		$this->expectExceptionMessageMatches('/^Failed to connect/');
-		$this->expectExceptionCode(ResponseException::ERROR_CONNECTION_FAILED);
-		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b' ]), [], 500));
+		$this->expectExceptionMessageMatches('/^Pushover API returned an error/');
+		$this->expectExceptionCode(ResponseException::ERROR_API);
+		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b', 'status' => 0 ]), [], 500));
 		$p   = new Pushover('token', 'user', $url);
 
 		$response = $p->send('Hello World!');
