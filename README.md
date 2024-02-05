@@ -3,7 +3,7 @@
 [![Latest Stable Version](https://poser.pugx.org/donatj/pushover/version)](https://packagist.org/packages/donatj/pushover)
 [![Total Downloads](https://poser.pugx.org/donatj/pushover/downloads)](https://packagist.org/packages/donatj/pushover)
 [![License](https://poser.pugx.org/donatj/pushover/license)](https://packagist.org/packages/donatj/pushover)
-[![ci.yml](https://github.com/donatj/Pushover-PHP/actions/workflows/ci.yml/badge.svg?)](https://github.com/donatj/Pushover-PHP/actions/workflows/ci.yml)
+[![ci.yml](https://github.com/donatj/Pushover-PHP/actions/workflows/ci.yml/badge.svg)](https://github.com/donatj/Pushover-PHP/actions/workflows/ci.yml)
 
 
 Pushover PHP is a very light, simple API wrapper for the Pushover API written for PHP.
@@ -86,6 +86,7 @@ class ResponseException {
 	public const ERROR_CONNECTION_FAILED = 100;
 	public const ERROR_DECODE_FAILED = 200;
 	public const ERROR_UNEXPECTED = 300;
+	public const ERROR_API = 400;
 }
 ```
 
@@ -194,7 +195,7 @@ Send the pushover message
 ##### Parameters:
 
 - ***string*** `$message` - The message to send
-- ***array*** `$options` - Optional configuration settings
+- ***array<string,mixed>*** `$options` - Optional configuration settings
 
 **Throws**: `\donatj\Pushover\Exceptions\ResponseException` - On failure to connect or decode the response
 
