@@ -5,7 +5,7 @@ test: lint
 	vendor/bin/phpunit
 
 .PHONY: lint
-lint: cs fixer-dry-run
+lint: cs fixer-dry-run phpstan
 
 .PHONY: cs
 cs:
@@ -14,6 +14,10 @@ cs:
 .PHONY: cbf
 cbf:
 	vendor/bin/phpcbf
+
+.PHONY: phpstan
+phpstan:
+	vendor/bin/phpstan analyse
 
 .PHONY: fix
 fix: cbf fixer
