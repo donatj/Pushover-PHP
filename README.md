@@ -11,7 +11,7 @@ Pushover PHP is a very light, simple API wrapper for the Pushover API written fo
 
 ## Requirements
 
-- **php**: >=7.3
+- **php**: >=7.4
 - **ext-json**: *
 
 ## Installing
@@ -76,7 +76,7 @@ if( !$po->send('Hello World!') ) {
 ```
 
 
-### Class: \donatj\Pushover\Exceptions\ResponseException
+### Class: donatj\Pushover\Exceptions\ResponseException
 
 ```php
 <?php
@@ -90,7 +90,7 @@ class ResponseException {
 }
 ```
 
-### Class: \donatj\Pushover\Options
+### Class: donatj\Pushover\Options
 
 Contains available option keys for the Pushover API
 
@@ -138,7 +138,7 @@ class Options {
 }
 ```
 
-### Class: \donatj\Pushover\Priority
+### Class: donatj\Pushover\Priority
 
 Contains all legal values for 'priority'
 
@@ -155,7 +155,7 @@ class Priority {
 }
 ```
 
-### Class: \donatj\Pushover\Pushover
+### Class: donatj\Pushover\Pushover
 
 Dead Simple API Interface for Pushover Messages
 
@@ -203,7 +203,7 @@ Send the pushover message
 
 - ***array*** - The decoded JSON response as an associative array
 
-### Class: \donatj\Pushover\Sounds
+### Class: donatj\Pushover\Sounds
 
 Contains legal values for 'sound'
 
