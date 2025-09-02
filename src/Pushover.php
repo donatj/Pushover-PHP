@@ -14,14 +14,11 @@ class Pushover {
 
 	public const API_URL = 'https://api.pushover.net/1/messages.json';
 
-	/** @var string */
-	private $token;
+	private string $token;
 
-	/** @var string */
-	private $user;
+	private string $user;
 
-	/** @var string */
-	private $apiUrl;
+	private string $apiUrl;
 
 	/**
 	 * Create a pushover object
