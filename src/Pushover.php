@@ -44,8 +44,8 @@ class Pushover {
 	 * @param string              $message The message to send
 	 * @param array<string,mixed> $options Optional configuration settings
 	 * @throws ResponseException On failure to connect or decode the response
-	 * @phpstan-return array{status:int}
 	 * @return array The decoded JSON response as an associative array
+	 * @phpstan-return array{status:int}
 	 */
 	public function send( string $message, array $options = [] ) : array {
 		$options[Options::TOKEN]   = $this->token;
