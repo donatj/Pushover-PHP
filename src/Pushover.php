@@ -90,6 +90,16 @@ class Pushover {
 			);
 		}
 
+		if( !is_int($final['status']) ) {
+			throw new ResponseException(
+				sprintf(
+					'Unexpected response from Pushover API: invalid status field - %s',
+					var_export($final['status'], true),
+				),
+				ResponseException::ERROR_UNEXPECTED,
+			);
+		}
+
 		if( $final['status'] === 0 ) {
 			throw new ResponseException(
 				'Pushover API returned an error: ' . implode('; ', $final['errors'] ?? []),

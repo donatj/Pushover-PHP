@@ -118,6 +118,17 @@ class PushoverTest extends TestCase {
 		$this->assertFalse($response);
 	}
 
+	public function test_Failure_invalidStatus() : void {
+		$this->expectException(ResponseException::class);
+		$this->expectExceptionMessageMatches('/^Unexpected response.*invalid status field/');
+		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'status' => 'not an int' ], JSON_THROW_ON_ERROR)));
+
+		$p   = new Pushover('token', 'user', $url);
+
+		$response = $p->send('Hello World!');
+		$this->assertFalse($response);
+	}
+
 	public function provideUnexpectedJSON() : \Generator {
 		yield [ 'null' ];
 		yield [ 'true' ];
