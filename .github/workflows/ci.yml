@@ -26,6 +26,8 @@ jobs:
           extensions: sockets, json, curl
 
       - name: Install dependencies with composer
+        # Use composer update to allow flexible dependency resolution across PHP versions
+        # This ensures each PHP version gets compatible dependency versions (e.g., PHPUnit 10+ for PHP 8.4+)
         run: composer update --prefer-dist --no-progress
 
       - name: Run tests
