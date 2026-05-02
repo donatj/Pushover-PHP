@@ -129,7 +129,7 @@ class PushoverTest extends TestCase {
 		$this->assertFalse($response);
 	}
 
-	public function provideUnexpectedJSON() : \Generator {
+	public static function provideUnexpectedJSON() : \Generator {
 		yield [ 'null' ];
 		yield [ 'true' ];
 		yield [ 'false' ];
