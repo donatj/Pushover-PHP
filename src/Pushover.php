@@ -103,7 +103,7 @@ class Pushover {
 		if( $final['status'] === 0 ) {
 			$errors = is_array($final['errors'] ?? null) ? $final['errors'] : [];
 			throw new ResponseException(
-				'Pushover API returned an error: ' . implode('; ', $errors),
+				'Pushover API returned an error: ' . (count($errors) > 0 ? implode('; ', $errors) : 'unknown error'),
 				ResponseException::ERROR_API,
 			);
 		}
