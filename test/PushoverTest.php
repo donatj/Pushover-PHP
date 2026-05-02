@@ -7,6 +7,7 @@ use donatj\Pushover\Exceptions\ResponseException;
 use donatj\Pushover\Options;
 use donatj\Pushover\Pushover;
 use donatj\Pushover\Sounds;
+use PHPUnit\Framework\Attributes\DataProvider;
 use PHPUnit\Framework\TestCase;
 
 class PushoverTest extends TestCase {
@@ -104,9 +105,7 @@ class PushoverTest extends TestCase {
 		$this->assertFalse($response);
 	}
 
-	/**
-	 * @dataProvider provideUnexpectedJSON
-	 */
+	#[DataProvider('provideUnexpectedJSON')]
 	public function test_Failure_unexpectedResponse(string $json) : void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Unexpected response/');
@@ -129,7 +128,7 @@ class PushoverTest extends TestCase {
 		$this->assertFalse($response);
 	}
 
-	public function provideUnexpectedJSON() : \Generator {
+	public static function provideUnexpectedJSON() : \Generator {
 		yield [ 'null' ];
 		yield [ 'true' ];
 		yield [ 'false' ];
