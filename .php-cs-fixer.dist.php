@@ -3,8 +3,13 @@
 use Corpus\PhpCsFixer\Config;
 use PhpCsFixer\Finder;
 
-return Config::php7x4()
-	->setUnsupportedPhpVersionAllowed(true)
+$config = Config::php7x4();
+
+if( method_exists($config, 'setUnsupportedPhpVersionAllowed') ) {
+	$config->setUnsupportedPhpVersionAllowed(true);
+}
+
+return $config
 	->setFinder(
 		Finder::create()
 			->files()
