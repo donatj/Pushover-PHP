@@ -171,12 +171,16 @@ class Pushover {
 #### Method: Pushover->__construct
 
 ```php
-function __construct(string $token, string $user [, string $apiUrl = self::API_URL])
+function __construct(
+	string $token,
+	string $user,
+	string $apiUrl = self::API_URL,
+)
 ```
 
 Create a pushover object
 
-##### Parameters:
+##### Parameters
 
 - ***string*** `$token` - The application API token
 - ***string*** `$user` - Your user key
@@ -187,19 +191,19 @@ Create a pushover object
 #### Method: Pushover->send
 
 ```php
-function send(string $message [, array $options = []]) : array
+function send(string $message, array $options = []): array
 ```
 
 Send the pushover message
 
-##### Parameters:
+##### Parameters
 
 - ***string*** `$message` - The message to send
 - ***array<string,mixed>*** `$options` - Optional configuration settings
 
 **Throws**: `\donatj\Pushover\Exceptions\ResponseException` - On failure to connect or decode the response
 
-##### Returns:
+##### Return Value
 
 - ***array*** - The decoded JSON response as an associative array
 

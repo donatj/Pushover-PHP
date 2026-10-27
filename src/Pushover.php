@@ -44,7 +44,7 @@ class Pushover {
 	 * @return array The decoded JSON response as an associative array
 	 * @phpstan-return array{status:int}
 	 */
-	public function send( string $message, array $options = [] ) : array {
+	public function send( string $message, array $options = [] ): array {
 		$options[Options::TOKEN]   = $this->token;
 		$options[Options::USER]    = $this->user;
 		$options[Options::MESSAGE] = $message;

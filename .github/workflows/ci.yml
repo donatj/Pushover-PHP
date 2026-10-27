@@ -28,5 +28,8 @@ jobs:
       - name: Install dependencies with composer
         run: composer install
 
+      - name: Check generated documentation
+        run: vendor/bin/mddoc --dry-run=true
+
       - name: Run tests
         run: make test

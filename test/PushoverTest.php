@@ -14,16 +14,16 @@ class PushoverTest extends TestCase {
 	/** @var MockWebServer */
 	private static $server;
 
-	public static function setUpBeforeClass() : void {
+	public static function setUpBeforeClass(): void {
 		self::$server = new MockWebServer;
 		self::$server->start();
 	}
 
-	public static function tearDownAfterClass() : void {
+	public static function tearDownAfterClass(): void {
 		self::$server->stop();
 	}
 
-	public function test_BasicMessage() : void {
+	public function test_BasicMessage(): void {
 		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b', 'status' => 1 ], JSON_THROW_ON_ERROR)));
 		$p   = new Pushover('token', 'user', $url);
 
@@ -41,7 +41,7 @@ class PushoverTest extends TestCase {
 		], $request->getParsedInput());
 	}
 
-	public function test_ComplexMessage() : void {
+	public function test_ComplexMessage(): void {
 		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'a' => 'b', 'status' => 1 ], JSON_THROW_ON_ERROR)));
 		$p   = new Pushover('token', 'user', $url);
 
@@ -71,7 +71,7 @@ class PushoverTest extends TestCase {
 		], $request->getParsedInput());
 	}
 
-	public function test_Failure_status0() : void {
+	public function test_Failure_status0(): void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Pushover API returned an error/');
 		$this->expectExceptionCode(ResponseException::ERROR_API);
@@ -82,7 +82,7 @@ class PushoverTest extends TestCase {
 		$this->assertFalse($response);
 	}
 
-	public function test_Failure_badUrl() : void {
+	public function test_Failure_badUrl(): void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Failed to connect/');
 		$this->expectExceptionCode(ResponseException::ERROR_CONNECTION_FAILED);
@@ -93,7 +93,7 @@ class PushoverTest extends TestCase {
 		$this->assertFalse($response);
 	}
 
-	public function test_Failure_invalidResponse() : void {
+	public function test_Failure_invalidResponse(): void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Failed to decode/');
 		$this->expectExceptionCode(ResponseException::ERROR_DECODE_FAILED);
@@ -107,7 +107,7 @@ class PushoverTest extends TestCase {
 	/**
 	 * @dataProvider provideUnexpectedJSON
 	 */
-	public function test_Failure_unexpectedResponse(string $json) : void {
+	public function test_Failure_unexpectedResponse(string $json): void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Unexpected response/');
 		$this->expectExceptionCode(ResponseException::ERROR_UNEXPECTED);
@@ -118,7 +118,7 @@ class PushoverTest extends TestCase {
 		$this->assertFalse($response);
 	}
 
-	public function test_Failure_invalidStatus() : void {
+	public function test_Failure_invalidStatus(): void {
 		$this->expectException(ResponseException::class);
 		$this->expectExceptionMessageMatches('/^Unexpected response.*invalid status field/');
 		$url = self::$server->getUrlOfResponse(new Response(json_encode([ 'status' => 'not an int' ], JSON_THROW_ON_ERROR)));
@@ -129,7 +129,7 @@ class PushoverTest extends TestCase {
 		$this->assertFalse($response);
 	}
 
-	public function provideUnexpectedJSON() : \Generator {
+	public function provideUnexpectedJSON(): \Generator {
 		yield [ 'null' ];
 		yield [ 'true' ];
 		yield [ 'false' ];
